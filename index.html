@@ -1,0 +1,111 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <div class = "container">
+            <!-- EMPTY HEADER -->
+        <header class = "header">
+
+        </header>
+
+            <!-- ROW 1 -> TITLE / PICTURE / TRAIN ADDER -->
+        
+        <div class = "row">
+
+                <!-- TITLE CONTAINER (50% WIDTH) -->
+            <div class = "col titleContainer">
+
+                    <!-- Title -->
+                <div class = "title">
+                    <h1>Always On Time Train</h1>
+                </div>
+
+            </div>
+
+                <!-- TRAIN IMAGE CONTAINER -->
+            <div class = "col imageContainer">
+
+                    <!-- Train Image -->
+                <div class = "image">
+                    <img src="assets/images/locomotive-clipart-fast-train-19.jpg">
+                </div>
+
+            </div>
+
+                <!-- INPUT SECTION -->
+            <div class = "col inputContainer">
+                    <!-- Input -->
+                <div class = "input">
+                    <!-- Title -->
+                    <h2>Add Train</h2>
+
+                    <!-- Train Name Input Field -->
+                    <div class = "largeTextbox">
+                        <p>Train Name: </p>
+                        <input type = "text" id = "name">
+                    </div>
+
+                    <!-- Destination Input Field -->
+                    <div class = "largeTextbox">
+                        <p>Destination: </p>
+                        <input type = "text" id = "destination">
+                    </div>
+
+                    <!-- First Train Input Field -->
+                    <div class = "smallTextbox">
+                        <p>First Train Time: </p>
+                        <input type = "text" id = "firstTrainTime">
+                    </div>
+
+                    <!-- Frequency Input Field -->
+                    <div class = "smallTextbox">
+                        <p>Frequency: </p>
+                        <input type = "text" id = "frequency">
+                    <div>
+
+                    <!-- Search Button -->
+                    <div class = "largeTextbox">
+                        <input class = "search" id = "findButton" type = "submit" value="Find">
+                    </div> 
+
+                </div>
+
+            </div>
+
+        </div>
+
+            <!-- ROW 2 -> TRAIN LISTING -->
+        <div class = "row">
+
+            <div class = "col outputContainer">
+
+                <ul class = "headerList">
+                    <li>Train Name</li>
+                    <li>Destination</li>
+                    <li>Next Arrival</li>
+                    <li>Minutes Away</li>
+                </ul>
+
+                <ul class = "list">
+                    <li>Sample Cho</li>
+                    <li>Completion Town</li>
+                    <li>12:05</li>
+                    <li>5</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
