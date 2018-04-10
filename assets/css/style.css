@@ -29,7 +29,8 @@ h1 {
 
 img {
     max-width: 100%;
-    max-height: 100%;
+    display:block;
+    margin: auto;
 }
 
 .input {
@@ -86,4 +87,28 @@ h2 {
     background-color: #b6b29e;
     border: 0.25em solid #b6b29e;
     border-radius: 1em;
+}
+
+ul+ul {
+    border-top: 2px solid #28230A;
+}
+
+ul {
+    list-style: none;
+    display: table;
+    width: 100%;
+}
+
+li {
+    display: table-cell;
+    width: 23%;
+    padding: 1% 0% 1% 2%;
+}
+
+.headerList {
+    background-color: #28230A;
+    color: #b6b29e;
+    padding-top: 1.5%;
+    border-radius: 0.75em 0.75em 0em 0em;
+    font-weight: 900;
 }
