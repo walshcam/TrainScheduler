@@ -52,12 +52,41 @@ $("#findButton").on("click",function(event) {
     $("destination").val().trim("");
     $("firstTrainTime").val().trim("");
     $("frequency").val().trim("");
-
-
 });
 
 // server needs to be pulled back to website 
 
+database.ref().on("child_added", function(childSnapshot) {
+    
+    //show value to ensure database is working
+    console.log(childSnapshot.val());
+
+    let name = childSnapshot.val().name;
+    let destination = childSnapshot.val().destination;
+    let time = childSnapshot.val().time;
+    let frequency = childSnapshot.val().frequency;
+
+    //Show Info is correct
+    console.log(name);
+    console.log(destination);
+    console.log(time);
+    console.log(frequency);
+});
+
 // Moment.js calculations 
+
+let currentTime = moment()
+
+let prettyTime = moment.unix(time).format("hh:mm");
+let frequencyMin = moment.unix(frequency).format("mm");
+console.log(prettyTime);
+console.log(frequencyMin);
+
+let timeInterval = moment(prettyTime).fromNow();
+console.log(timeInterval);
+
+// while (timeInterval > frequency) {
+//     timeInterval = timeInterval + frequency;
+// }
 
 // Properties need to be displayed on page
