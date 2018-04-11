@@ -71,19 +71,19 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log(destination);
     console.log(time);
     console.log(frequency);
+
+    // Moment.js calculations 
+
+    let prettyTime = moment.unix(time).format("hh:mm");
+    let frequencyMin = moment.unix(frequency).format("mm");
+    console.log(prettyTime);
+    console.log(frequencyMin);
+
+    let timeInterval = moment(prettyTime).fromNow();
+    console.log(timeInterval);
 });
 
 // Moment.js calculations 
-
-let currentTime = moment()
-
-let prettyTime = moment.unix(time).format("hh:mm");
-let frequencyMin = moment.unix(frequency).format("mm");
-console.log(prettyTime);
-console.log(frequencyMin);
-
-let timeInterval = moment(prettyTime).fromNow();
-console.log(timeInterval);
 
 // while (timeInterval > frequency) {
 //     timeInterval = timeInterval + frequency;
