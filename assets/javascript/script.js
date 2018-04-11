@@ -21,9 +21,9 @@ $("#findButton").on("click",function(event) {
 
     // Get user input
     let name = $("#name").val().trim();
-    let destination = $("destination").val().trim();
-    let time = $("firstTrainTime").val().trim();
-    let frequency = $("frequency").val().trim();
+    let destination = $("#destination").val().trim();
+    let time = $("#firstTrainTime").val().trim();
+    let frequency = $("#frequency").val().trim();
 
     //Create object for holding train data
 
@@ -49,9 +49,9 @@ $("#findButton").on("click",function(event) {
     //Clear all text boxes for new info
 
     $("#name").val().trim("");
-    $("destination").val().trim("");
-    $("firstTrainTime").val().trim("");
-    $("frequency").val().trim("");
+    $("#destination").val().trim("");
+    $("#firstTrainTime").val().trim("");
+    $("#frequency").val().trim("");
 });
 
 // server needs to be pulled back to website 
@@ -73,20 +73,39 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log(frequency);
 
     // Moment.js calculations 
+    let momentTime = moment(time).format("LT");
+    console.log("momentTime: " + momentTime);
 
-    let prettyTime = moment.unix(time).format("hh:mm");
-    let frequencyMin = moment.unix(frequency).format("mm");
-    console.log(prettyTime);
-    console.log(frequencyMin);
 
-    let timeInterval = moment(prettyTime).fromNow();
+    // Get time until next train
+    let timeInterval = moment().diff(moment(time, "m"),"minutes");
+    let timeUntil = frequency - (timeInterval % frequency)
     console.log(timeInterval);
+    console.log("timeUntil: " + timeUntil);
+
+    //Get time from timeInterval
+    let nextTrain = moment().add(timeUntil,"minutes")
+    let prettyTime = moment(nextTrain).format("hh:mm A");
+    console.log("prettyTime: " + prettyTime);
+
+    // Append info to page
+    let infoArray = [name,destination,prettyTime,timeUntil];
+
+    let container = $(".outputContainer");
+    let newUL = $("<ul>");
+
+    for (let i = 0; i < infoArray.length; i++) {
+        let newLI = $("<li>");
+        newLI.text(infoArray[i]);
+        newUL.append(newLI);
+    }
+
+    container.append(newUL);
 });
 
-// Moment.js calculations 
 
-// while (timeInterval > frequency) {
-//     timeInterval = timeInterval + frequency;
-// }
+
+
+
 
 // Properties need to be displayed on page
